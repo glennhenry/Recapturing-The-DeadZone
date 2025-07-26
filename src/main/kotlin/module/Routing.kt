@@ -11,7 +11,7 @@ import java.io.File
 
 fun Application.configureRouting(db: BigDB) {
     routing {
-        staticResources("/", "static")
+        caseInsensitiveStaticResources("/", "static")
         staticFiles("/game/core.swf", File("core-swf/core.swf"))
 
         post("/api/{path}") {
