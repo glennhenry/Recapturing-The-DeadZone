@@ -42,7 +42,7 @@ fun insertLoots(xmlInput: String): String {
 
             for ((type, id, q) in items) {
                 val itm = doc.createElement("itm")
-                itm.setAttribute("type", type)
+                itm.setAttribute("type", id)
                 itm.setAttribute("id", id)
                 itm.setAttribute("q", q.toString())
                 itmsElement.appendChild(itm)
