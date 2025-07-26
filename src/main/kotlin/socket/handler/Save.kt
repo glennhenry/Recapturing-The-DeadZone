@@ -135,6 +135,15 @@ class SaveHandler(private val context: ServerContext) : SocketMessageHandler {
                 send(PIOSerializer.serialize(msg))
             }
 
+            "stat_data" -> {
+                val stats = data["stats"]
+                Logger.socketPrint("Received stat_data with stats: $stats")
+            }
+
+            "clear_notes" -> {
+                Logger.socketPrint("Received clear_notes")
+            }
+
             "bld_move" -> {
                 val x = (data["tx"] as? Number)?.toInt() ?: 0
                 val y = (data["ty"] as? Number)?.toInt() ?: 0
