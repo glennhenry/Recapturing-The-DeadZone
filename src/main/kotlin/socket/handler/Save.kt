@@ -1,7 +1,7 @@
 package dev.deadzone.socket.handler
 
 import dev.deadzone.core.model.game.data.GameResources
-import dev.deadzone.core.model.game.data.Zombie
+import dev.deadzone.core.model.game.data.ZombieData
 import dev.deadzone.core.utils.PIOSerializer
 import dev.deadzone.module.Dependency
 import dev.deadzone.module.Logger
@@ -63,9 +63,9 @@ class SaveHandler(private val context: ServerContext) : SocketMessageHandler {
                     automated = false,
                     sceneXML = resolveAndLoadScene(areaType),
                     z = listOf(
-                        Zombie.fatWalker(level = 10),
-                        Zombie.fatWalker(level = 12),
-                        Zombie.fatWalker(level = 14),
+                        ZombieData.fatWalker(),
+                        ZombieData.fatWalker(),
+                        ZombieData.fatWalker(),
                     ),
                     allianceAttackerEnlisting = false,
                     allianceAttackerLockout = false,
