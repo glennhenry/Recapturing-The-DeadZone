@@ -1,5 +1,6 @@
 package dev.deadzone.socket.handler
 
+import dev.deadzone.core.mission.insertLoots
 import dev.deadzone.core.model.game.data.GameResources
 import dev.deadzone.core.model.game.data.ZombieData
 import dev.deadzone.core.model.game.data.toFlatList
@@ -58,6 +59,9 @@ class SaveHandler(private val context: ServerContext) : SocketMessageHandler {
                 val areaType = data["areaType"] as String
                 Logger.socketPrint(areaType)
 
+                val sceneXML = resolveAndLoadScene(areaType)
+                val sceneXMLWithLoot = insertLoots(sceneXML)
+
                 val zombies = listOf(
                     ZombieData.fatWalkerStrongAttack(101),
                     ZombieData.fatWalkerStrongAttack(102),
@@ -80,7 +84,7 @@ class SaveHandler(private val context: ServerContext) : SocketMessageHandler {
                     assignmentType = "None", // for simplicity. see AssignmentType
                     areaClass = "substreet",
                     automated = false,
-                    sceneXML = resolveAndLoadScene(areaType),
+                    sceneXML = sceneXMLWithLoot,
                     z = flatZombieList,
                     allianceAttackerEnlisting = false,
                     allianceAttackerLockout = false,

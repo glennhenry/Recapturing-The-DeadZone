@@ -183,7 +183,7 @@ val areaTypeToScenes = mapOf(
         "interior-office-medium-1",
         "interior-office-medium-2"
     ),
-    "officeSmall" to listOf(
+    "office" to listOf(
         "interior-office-small-1"
     ),
     "police" to listOf(
